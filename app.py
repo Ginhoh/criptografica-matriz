@@ -6,7 +6,6 @@ gramatica = {"A":1, "B":2, "C":3, "D":4, "E":5, "F":6, "G":7, "H":8, "I":9, "J":
 
 
 #Usuário digita uma string para o programa criptografar
-texto = str(input("Digite algo: ")).upper().replace(" ", "#")
 
 
 #Função de criptografia    
@@ -42,9 +41,13 @@ def criptografar(texto):
             matriz_resultante[i].append(matriz_criptogradora[i][0] * matriz[0][j] + matriz_criptogradora[i][1] * matriz[1][j])
 
     print("Mensagem Criptografada: ")
+    msg = ''
     for i in matriz_resultante:
         for j in i:
-            print(j, end=' ')
+            #print(j, end=' ')
+            msg += f'{j} '
+    
+    return msg
 
 
 
@@ -88,9 +91,11 @@ def descriptografar():
 
     print(mensagem_decodificada.replace("#", " ")) #Substitui o caractere de espaço pelo caractere de espaço real
 
+if __name__ == '__main__':
+    texto = str(input("Digite algo: ")).upper().replace(" ", "#")
 
-criptografar(texto)
-descriptografar()
+    print(criptografar(texto))
+    descriptografar()
 
 
             
